@@ -14,7 +14,7 @@ document
     for (const row of rows) {
       const [nisnData, nama, status] = row.split(';');
 
-      if (nisnData === nisn) {
+      if (nisnData === nisn.toString()) {
         document.getElementById('foto-siswa').src = `img/${nisn}.jpg`;
         document.getElementById('nama-siswa').textContent = `Nama: ${nama}`;
         document.getElementById('status-kelulusan').textContent = `${status}`;
