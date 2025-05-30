@@ -123,8 +123,6 @@ a#download-link {
   text-align: left;
 }
 
-
-
 .countdown-wrapper {
   display: flex;
   justify-content: center;
@@ -134,11 +132,8 @@ a#download-link {
   overflow-x: auto;
   overflow-y: hidden;
 }
-#countdown {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
+
+
 .countdown-box {
   background-color: #f3f4f6;
   padding: 15px 10px;
@@ -164,7 +159,12 @@ a#download-link {
   transform: scale(1.05);
   background-color: #e0e7ff;
 }
+#countdown {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 
+  }
 @media screen and (max-width: 600px) {
   .certificate {
     flex-direction: column;
