@@ -123,11 +123,7 @@ a#download-link {
   text-align: left;
 }
 
-#countdown {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
+
 
 .countdown-wrapper {
   display: flex;
@@ -136,6 +132,11 @@ a#download-link {
   margin-top: 20px;
   flex-wrap: nowrap;
   overflow-x: auto;
+  #countdown {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 
 .countdown-box {
