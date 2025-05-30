@@ -1,3 +1,40 @@
+// Waktu target (UTC+7 -> WIB)
+const bukaTanggal = new Date("2025-06-02T01:00:00Z"); // 08.00 WIB == 01.00 UTC
+
+const now = new Date();
+const aksesTertutup = document.getElementById('akses-tertutup');
+const kontenUtama = document.getElementById('main-content'); // pastikan bagian utama kamu dibungkus
+
+// Sembunyikan isi utama saat belum waktunya
+if (now < bukaTanggal) {
+  if (kontenUtama) kontenUtama.style.display = "none";
+  aksesTertutup.style.display = "block";
+
+  // Jalankan countdown
+  const countdownEl = document.getElementById("countdown");
+
+  const countdownInterval = setInterval(() => {
+    const now = new Date();
+    const selisih = bukaTanggal - now;
+
+    if (selisih <= 0) {
+      clearInterval(countdownInterval);
+      aksesTertutup.style.display = "none";
+      if (kontenUtama) kontenUtama.style.display = "block";
+      return;
+    }
+
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor((selisih / (1000 * 60 * 60)) % 24);
+    const menit = Math.floor((selisih / (1000 * 60)) % 60);
+    const detik = Math.floor((selisih / 1000) % 60);
+
+    countdownEl.textContent = `${hari} hari ${jam} jam ${menit} menit ${detik} detik`;
+  }, 1000);
+} else {
+  aksesTertutup.style.display = "none";
+  if (kontenUtama) kontenUtama.style.display = "block";
+}
 document.getElementById('result').style.display = 'none';
 document
   .getElementById('form-nisn')
