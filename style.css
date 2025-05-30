@@ -126,19 +126,18 @@ a#download-link {
 
 
 .countdown-wrapper {
-  display: flex;
+  display: 100%;
   justify-content: center;
   gap: 15px;
   margin-top: 20px;
   flex-wrap: nowrap;
   overflow-x: auto;
-  #countdown {
+}
+#countdown {
     display: flex;
     flex-direction: row;
     gap: 20px;
   }
-}
-
 .countdown-box {
   background-color: #f3f4f6;
   padding: 15px 10px;
