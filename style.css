@@ -133,7 +133,7 @@ a#download-link {
   margin-top: 20px;
   flex-wrap: nowrap;
   overflow-x: auto;
-  /*overflow-y: hidden;*/
+  overflow-y: hidden;
 }
 
 
@@ -161,13 +161,6 @@ a#download-link {
 .countdown-box:hover {
   transform: scale(1.05);
   background-color: #e0e7ff;
-}
-
-.countdown-box {
-  border: 2px dashed red;
-}
-.countdown-wrapper {
-  border: 2px solid blue;
 }
 
 #countdown {
