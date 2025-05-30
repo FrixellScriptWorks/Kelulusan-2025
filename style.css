@@ -185,3 +185,7 @@ a#download-link {
     height: 130px;
   }
 }
+
+* {
+  box-sizing: border-box;
+}
