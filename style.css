@@ -131,7 +131,8 @@ a#download-link {
   gap: 15px;
   margin-top: 20px;
   flex-wrap: nowrap;
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 #countdown {
     display: flex;
