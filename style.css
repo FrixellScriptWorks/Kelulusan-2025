@@ -177,3 +177,9 @@ a#download-link {
   transform: scale(1.05);
   background-color: #e0e7ff;
 }
+
+#countdown {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
