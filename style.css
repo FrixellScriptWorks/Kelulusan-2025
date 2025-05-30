@@ -140,6 +140,11 @@ a#download-link {
     height: 130px;
   }
 }
+.countdown {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 .countdown-wrapper {
   display: flex;
   justify-content: center;
@@ -169,17 +174,9 @@ a#download-link {
   font-size: 14px;
   color: #6b7280;
 }
-.countdown-box {
-  transition: transform 0.2s ease, background 0.2s ease;
-}
 
 .countdown-box:hover {
   transform: scale(1.05);
   background-color: #e0e7ff;
 }
 
-#countdown {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
