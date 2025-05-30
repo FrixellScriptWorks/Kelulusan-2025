@@ -29,7 +29,24 @@ window.addEventListener('DOMContentLoaded', function () {
       const detik = Math.floor((selisih / 1000) % 60);
 
       if (countdownEl) {
-        countdownEl.textContent = `${hari} hari ${jam} jam ${menit} menit ${detik} detik`;
+          countdownEl.innerHTML = `
+          <div class="countdown-box">
+            <div class="countdown-number">${hari}</div>
+            <div class="countdown-label">Hari</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number">${jam}</div>
+            <div class="countdown-label">Jam</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number">${menit}</div>
+            <div class="countdown-label">Menit</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number">${detik}</div>
+            <div class="countdown-label">Detik</div>
+          </div>
+        `;
       }
     }, 1000);
   } else {

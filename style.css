@@ -140,3 +140,38 @@ a#download-link {
     height: 130px;
   }
 }
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  background-color: #f3f4f6;
+  padding: 15px 10px;
+  border-radius: 10px;
+  min-width: 70px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.countdown-number {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.countdown-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+.countdown-box {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.countdown-box:hover {
+  transform: scale(1.05);
+  background-color: #e0e7ff;
+}
