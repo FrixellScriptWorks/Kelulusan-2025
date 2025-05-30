@@ -126,7 +126,7 @@ a#download-link {
 
 
 .countdown-wrapper {
-  display: 100%;
+  display: flex;
   justify-content: center;
   gap: 15px;
   margin-top: 20px;
