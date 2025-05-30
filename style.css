@@ -145,16 +145,18 @@ a#download-link {
   justify-content: center;
   gap: 15px;
   margin-top: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .countdown-box {
   background-color: #f3f4f6;
   padding: 15px 10px;
   border-radius: 10px;
-  min-width: 70px;
+  min-width: 80px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .countdown-number {
