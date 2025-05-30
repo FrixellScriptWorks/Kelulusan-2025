@@ -123,28 +123,12 @@ a#download-link {
   text-align: left;
 }
 
-@media screen and (max-width: 600px) {
-  .certificate {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cert-right {
-    margin-left: 0;
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  .cert-left img {
-    width: 100px;
-    height: 130px;
-  }
-}
-.countdown {
+#countdown {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
+
 .countdown-wrapper {
   display: flex;
   justify-content: center;
@@ -180,3 +164,20 @@ a#download-link {
   background-color: #e0e7ff;
 }
 
+@media screen and (max-width: 600px) {
+  .certificate {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cert-right {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .cert-left img {
+    width: 100px;
+    height: 130px;
+  }
+}
