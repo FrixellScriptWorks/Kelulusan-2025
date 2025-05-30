@@ -162,6 +162,14 @@ a#download-link {
   transform: scale(1.05);
   background-color: #e0e7ff;
 }
+
+.countdown-box {
+  border: 2px dashed red;
+}
+.countdown-wrapper {
+  border: 2px solid blue;
+}
+
 #countdown {
     display: flex;
     flex-direction: row;
