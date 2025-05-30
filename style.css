@@ -135,7 +135,6 @@ a#download-link {
 }
 #countdown {
     display: flex;
-    flex-direction: row;
     gap: 20px;
   }
 .countdown-box {
