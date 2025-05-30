@@ -126,7 +126,6 @@ a#download-link {
 .countdown-wrapper {
   width: 100%;
   max-width: 100%;
-  min-height: 120px;
   display: flex;
   justify-content: center;
   gap: 15px;
