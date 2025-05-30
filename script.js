@@ -1,3 +1,4 @@
+window.addEventListener('DOMContentLoaded', function () {
 // Waktu target (UTC+7 -> WIB)
 const bukaTanggal = new Date("2025-05-30T15:00:00Z"); // 08.00 WIB == 01.00 UTC
 
@@ -35,6 +36,8 @@ if (now < bukaTanggal) {
   aksesTertutup.style.display = "none";
   if (kontenUtama) kontenUtama.style.display = "block";
 }
+});
+
 document.getElementById('result').style.display = 'none';
 document
   .getElementById('form-nisn')
