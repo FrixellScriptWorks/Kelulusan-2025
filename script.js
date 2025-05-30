@@ -1,5 +1,5 @@
 // Waktu target (UTC+7 -> WIB)
-const bukaTanggal = new Date("2025-06-02T01:00:00Z"); // 08.00 WIB == 01.00 UTC
+const bukaTanggal = new Date("2025-05-30T15:00:00Z"); // 08.00 WIB == 01.00 UTC
 
 const now = new Date();
 const aksesTertutup = document.getElementById('akses-tertutup');
