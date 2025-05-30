@@ -1,0 +1,142 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+input, button {
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+iframe {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 80px; /* Ukuran ideal logo */
+  width: auto;
+}
+body {
+  background: linear-gradient(to right, #f3f4f6, #e0e7ff);
+  color: #333;
+}
+
+.container {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+input, button {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+a#download-link {
+  display: inline-block;
+  margin-top: 15px;
+  background: #10b981;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.result-card {
+  margin-top: 30px;
+  background: #fdfdfd;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.certificate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.cert-left img {
+  width: 140px;
+  height: 180px;
+  object-fit: cover;
+  border: 4px solid #ccc;
+  border-radius: 12px;
+}
+
+.cert-right {
+  flex: 1;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.cert-right h2 {
+  font-size: 28px;
+  margin: 0;
+  color: #1f2937;
+}
+
+.ucapan-selamat {
+  font-size: 20px;
+  color: #10b981;
+  margin: 8px 0;
+}
+
+#status-kelulusan {
+  font-size: 30px;
+  color: #2563eb;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 8px 0;
+}
+
+.pdf-section {
+  margin-top: 30px;
+  text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  .certificate {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cert-right {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .cert-left img {
+    width: 100px;
+    height: 130px;
+  }
+}
