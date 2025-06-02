@@ -186,3 +186,10 @@ a#download-link {
     height: 130px;
   }
 }
+.pdf-section iframe,
+.pdf-section embed {
+  width: 100% !important;
+  height: 500px;
+  max-width: 100%;
+  display: block;
+}
