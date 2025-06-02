@@ -185,6 +185,14 @@ a#download-link {
     width: 100px;
     height: 130px;
   }
+    .result-card {
+    padding: 15px;
+  }
+
+  .pdf-section iframe,
+  .pdf-section embed {
+    height: 400px;
+  }
 }
 .pdf-section iframe,
 .pdf-section embed {
