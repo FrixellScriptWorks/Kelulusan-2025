@@ -74,7 +74,6 @@ window.addEventListener('DOMContentLoaded', function () {
         document.getElementById('nama-siswa').textContent = `Nama: ${nama}`;
         document.getElementById('status-kelulusan').textContent = `${status}`;
         document.getElementById('pdf-viewer').src = `pdf/${nisn}.pdf`;
-        document.getElementById('download-link').href = `pdf/${nisn}.pdf`;
 
         if (status.trim().toLowerCase() === 'lulus') {
           document.querySelector('.ucapan-selamat').textContent = 'Selamat! Kamu dinyatakan:';
