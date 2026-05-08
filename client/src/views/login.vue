@@ -94,7 +94,7 @@ const cekKelulusan = async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eef1f7;
+  background: white;
   padding: 20px;
 }
 
@@ -137,6 +137,7 @@ input {
   border-radius: 14px;
   outline: none;
   transition: 0.3s ease;
+  background: #f4f6f8;
 }
 
 input:focus {

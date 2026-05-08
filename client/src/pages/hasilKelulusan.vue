@@ -143,7 +143,7 @@ const isLulus = computed(() => {
   font-size: 1.6rem;
   line-height: 1.6;
   color: #222;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .status-text {
@@ -160,7 +160,7 @@ const isLulus = computed(() => {
 
 /* PHOTO */
 .photo-wrapper {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .student-photo {
@@ -180,7 +180,7 @@ const isLulus = computed(() => {
 
 .nisn {
   font-size: 1.4rem;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /* BUTTON */
