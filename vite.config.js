@@ -6,4 +6,3 @@ export default defineConfig({
   plugins: [vue()],
   base: '/Kelulusan-2025/',
 })
-
