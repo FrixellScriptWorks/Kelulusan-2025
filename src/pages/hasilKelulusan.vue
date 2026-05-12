@@ -10,6 +10,8 @@
         class="logo"
       >
 
+      <div class="content-box">
+
       <!-- Header -->
       <!-- <h1 class="cap">
         🎓
@@ -19,7 +21,7 @@
         Selamat!
       </h1>
       
-      <p class="subtitle">
+        <p class="subtitle" :class="{ 'lulus-bg': isLulus, 'tidak-lulus-bg': !isLulus }">
         Anda dinyatakan
         <span
           class="status-text"
@@ -28,7 +30,7 @@
           {{ siswa.status ? siswa.status.toUpperCase() : '---' }}
         </span>,
         <br>
-        Teruslah belajar dan raih masa depan yang gemilang.
+        {{ statusMessage }}
       </p>
 
       <!-- Foto -->
@@ -48,6 +50,8 @@
       <p class="nisn">
         {{ siswa.nisn }}
       </p>
+
+      </div>
 
       <!-- Button -->
       <div class="button-group">
@@ -108,6 +112,12 @@ const pdfNilai = computed(() => {
 
 const isLulus = computed(() => {
   return siswa.status === 'Lulus'
+})
+
+const statusMessage = computed(() => {
+  return isLulus.value
+    ? 'Kelulusan adalah bonus dari prosesmu; tetaplah setia pada semangat bertumbuh.'
+    : 'Tetaplah tegar. Kamu jauh lebih kuat dari sekadar angka di atas kertas.'
 })
 </script>
 
@@ -255,5 +265,35 @@ const isLulus = computed(() => {
   .btn {
     width: 100%;
   }
+}
+
+.content-box {
+  background: transparent;
+}
+
+.lulus-bg {
+  background: #16a34a;
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.lulus-bg .status-text {
+  color: white;
+}
+
+.tidak-lulus-bg {
+  background: #dc2626;
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tidak-lulus-bg .status-text {
+  color: white;
 }
 </style>
