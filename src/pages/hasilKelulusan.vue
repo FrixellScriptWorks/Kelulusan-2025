@@ -2,7 +2,7 @@
   <div class="page">
 
     <div class="content">
-
+    <template v-if="hasSiswa">
       <!-- Logo -->
       <img
         :src="logo"
@@ -25,7 +25,7 @@
           class="status-text"
           :class="isLulus ? 'success' : 'danger'"
         >
-          {{ siswa.status.toUpperCase() }}
+          {{ siswa.status ? siswa.status.toUpperCase() : '---' }}
         </span>,
         <br>
         Teruslah belajar dan raih masa depan yang gemilang.
@@ -68,8 +68,17 @@
         </button>
 
       </div>
+    </template>
 
-    </div>
+    <template v-else>
+      <div class="missing-data">
+        <h2>Data siswa tidak ditemukan</h2>
+        <p>Silakan kembali ke halaman login dan masukkan NISN serta password yang benar.</p>
+        <button class="btn btn-secondary" @click="$router.push('/')">← Kembali ke Login</button>
+      </div>
+    </template>
+
+  </div>
 
   </div>
 </template>
@@ -85,12 +94,16 @@ const route = useRoute()
 
 const siswa = route.query
 
+const hasSiswa = computed(() => {
+  return Boolean(siswa && siswa.nisn)
+})
+
 const fotoSiswa = computed(() => {
-  return `/foto/${siswa.nisn}.jpg`
+  return siswa.nisn ? `${import.meta.env.BASE_URL}foto/${siswa.nisn}.jpg` : ''
 })
 
 const pdfNilai = computed(() => {
-  return `/nilai/${siswa.nisn}.pdf`
+  return siswa.nisn ? `${import.meta.env.BASE_URL}nilai/${siswa.nisn}.pdf` : ''
 })
 
 const isLulus = computed(() => {
