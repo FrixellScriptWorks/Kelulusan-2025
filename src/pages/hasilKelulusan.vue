@@ -21,11 +21,15 @@
         Selamat!
       </h1>
       
-        <p class="subtitle" :class="{ 'lulus-bg': isLulus, 'tidak-lulus-bg': !isLulus }">
+        <p class="subtitle" :class="{
+        'lulus-bg': studentStatus === 'lulus',
+        'tidak-lulus-bg': studentStatus === 'tidak-lulus',
+        'administration-halt-bg': studentStatus === 'administration-halt'
+      }">
         Anda dinyatakan
         <span
           class="status-text"
-          :class="isLulus ? 'success' : 'danger'"
+          :class="statusColor"
         >
           {{ siswa.status ? siswa.status.toUpperCase() : '---' }}
         </span>,
@@ -110,14 +114,45 @@ const pdfNilai = computed(() => {
   return siswa.nisn ? `${import.meta.env.BASE_URL}nilai/${siswa.nisn}.pdf` : ''
 })
 
-const isLulus = computed(() => {
-  return siswa.status === 'Lulus'
+const studentStatus = computed(() => {
+  if (!siswa.status) return null
+  
+  const status = siswa.status.toLowerCase().trim()
+  
+  if (status === 'lulus') {
+    return 'lulus'
+  } else if (status === 'tidak lulus' || status === '!lulus') {
+    return 'tidak-lulus'
+  } else if (status === 'administration halt' || status === 'pemberhentian administratif') {
+    return 'administration-halt'
+  }
+  
+  // Default fallback
+  return 'tidak-lulus'
+})
+
+const statusColor = computed(() => {
+  switch (studentStatus.value) {
+    case 'lulus':
+      return 'success'
+    case 'administration-halt':
+      return 'warning'
+    default:
+      return 'danger'
+  }
 })
 
 const statusMessage = computed(() => {
-  return isLulus.value
-    ? 'Kelulusan adalah bonus dari prosesmu; tetaplah setia pada semangat bertumbuh.'
-    : 'Tetaplah tegar. Kamu jauh lebih kuat dari sekadar angka di atas kertas.'
+  switch (studentStatus.value) {
+    case 'lulus':
+      return 'Kelulusan adalah bonus dari prosesmu; tetaplah setia pada semangat bertumbuh.'
+    case 'tidak-lulus':
+      return 'Tetaplah tegar. Kamu jauh lebih kuat dari sekadar angka di atas kertas.'
+    case 'administration-halt':
+      return 'Penyelesaian Anda ditunda karena alasan administratif. Silakan hubungi tata usaha.'
+    default:
+      return 'Status tidak dikenali.'
+  }
 })
 </script>
 
@@ -295,5 +330,22 @@ const statusMessage = computed(() => {
 
 .tidak-lulus-bg .status-text {
   color: white;
+}
+
+.administration-halt-bg {
+  background: #f59e0b;
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.administration-halt-bg .status-text {
+  color: white;
+}
+
+.warning {
+  color: #fbbf24;
 }
 </style>
