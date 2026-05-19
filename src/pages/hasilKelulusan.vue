@@ -124,6 +124,7 @@ const studentStatus = computed(() => {
   } else if (status === 'tidak lulus' || status === '!lulus') {
     return 'tidak-lulus'
   } else if (status === 'administration halt' || status === 'pemberhentian administratif') {
+    siswa.status = 'tertahan administratif'
     return 'administration-halt'
   }
   
