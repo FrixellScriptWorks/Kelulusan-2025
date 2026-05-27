@@ -2,13 +2,15 @@
   <div class="page">
 
     <div class="content">
-
+    <template v-if="hasSiswa">
       <!-- Logo -->
       <img
         :src="logo"
         alt="Logo Sekolah"
         class="logo"
       >
+
+      <div class="content-box">
 
       <!-- Header -->
       <!-- <h1 class="cap">
@@ -19,16 +21,20 @@
         Selamat!
       </h1>
       
-      <p class="subtitle">
+        <p class="subtitle" :class="{
+        'lulus-bg': studentStatus === 'lulus',
+        'tidak-lulus-bg': studentStatus === 'tidak-lulus',
+        'administration-halt-bg': studentStatus === 'administration-halt'
+      }">
         Anda dinyatakan
         <span
           class="status-text"
-          :class="isLulus ? 'success' : 'danger'"
+          :class="statusColor"
         >
-          {{ siswa.status.toUpperCase() }}
+          {{ siswa.status ? siswa.status.toUpperCase() : '---' }}
         </span>,
         <br>
-        Teruslah belajar dan raih masa depan yang gemilang.
+        {{ statusMessage }}
       </p>
 
       <!-- Foto -->
@@ -49,6 +55,8 @@
         {{ siswa.nisn }}
       </p>
 
+      </div>
+
       <!-- Button -->
       <div class="button-group">
 
@@ -68,8 +76,17 @@
         </button>
 
       </div>
+    </template>
 
-    </div>
+    <template v-else>
+      <div class="missing-data">
+        <h2>Data siswa tidak ditemukan</h2>
+        <p>Silakan kembali ke halaman login dan masukkan NISN serta password yang benar.</p>
+        <button class="btn btn-secondary" @click="$router.push('/')">← Kembali ke Login</button>
+      </div>
+    </template>
+
+  </div>
 
   </div>
 </template>
@@ -85,16 +102,58 @@ const route = useRoute()
 
 const siswa = route.query
 
+const hasSiswa = computed(() => {
+  return Boolean(siswa && siswa.nisn)
+})
+
 const fotoSiswa = computed(() => {
-  return `/foto/${siswa.nisn}.jpg`
+  return siswa.nisn ? `${import.meta.env.BASE_URL}foto/${siswa.nisn}.jpg` : ''
 })
 
 const pdfNilai = computed(() => {
-  return `/nilai/${siswa.nisn}.pdf`
+  return siswa.nisn ? `${import.meta.env.BASE_URL}nilai/${siswa.nisn}.pdf` : ''
 })
 
-const isLulus = computed(() => {
-  return siswa.status === 'Lulus'
+const studentStatus = computed(() => {
+  if (!siswa.status) return null
+  
+  const status = siswa.status.toLowerCase().trim()
+  
+  if (status === 'lulus') {
+    return 'lulus'
+  } else if (status === 'tidak lulus' || status === '!lulus') {
+    return 'tidak-lulus'
+  } else if (status === 'administration halt' || status === 'pemberhentian administratif') {
+    siswa.status = 'tertahan administratif'
+    return 'administration-halt'
+  }
+  
+  // Default fallback
+  return 'tidak-lulus'
+})
+
+const statusColor = computed(() => {
+  switch (studentStatus.value) {
+    case 'lulus':
+      return 'success'
+    case 'administration-halt':
+      return 'warning'
+    default:
+      return 'danger'
+  }
+})
+
+const statusMessage = computed(() => {
+  switch (studentStatus.value) {
+    case 'lulus':
+      return 'Kelulusan adalah bonus dari prosesmu; tetaplah setia pada semangat bertumbuh.'
+    case 'tidak-lulus':
+      return 'Tetaplah tegar. Kamu jauh lebih kuat dari sekadar angka di atas kertas.'
+    case 'administration-halt':
+      return 'Penyelesaian Anda ditunda karena alasan administratif. Silakan hubungi tata usaha.'
+    default:
+      return 'Status tidak dikenali.'
+  }
 })
 </script>
 
@@ -242,5 +301,52 @@ const isLulus = computed(() => {
   .btn {
     width: 100%;
   }
+}
+
+.content-box {
+  background: transparent;
+}
+
+.lulus-bg {
+  background: #16a34a;
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.lulus-bg .status-text {
+  color: white;
+}
+
+.tidak-lulus-bg {
+  background: #dc2626;
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tidak-lulus-bg .status-text {
+  color: white;
+}
+
+.administration-halt-bg {
+  background: #f59e0b;
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.administration-halt-bg .status-text {
+  color: white;
+}
+
+.warning {
+  color: #fbbf24;
 }
 </style>

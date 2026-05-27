@@ -46,39 +46,56 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import logo from '../assets/LogoJisc.png'
-import api from '../services/api'
 
 const router = useRouter()
 
+const KEY = 'kelulusan'
 const nisn = ref('')
 const password = ref('')
 
-const cekKelulusan = async () => {
-
-  try {
-
-    const response = await api.post('/siswa/login', {
-      nisn: nisn.value,
-      password: password.value
+const decodeString = (payload) => {
+  const decoded = atob(payload)
+  return Array.from(decoded)
+    .map((char, index) => {
+      const code = char.charCodeAt(0)
+      const keyCode = KEY.charCodeAt(index % KEY.length)
+      return String.fromCharCode(code ^ keyCode)
     })
+    .join('')
+}
 
-    const data = response.data.data
+const decodeSiswaList = (rawList) => {
+  return rawList.map(item => ({
+    nisn: decodeString(item.nisn),
+    password: decodeString(item.password),
+    nama: decodeString(item.nama),
+    status: decodeString(item.status)
+  }))
+}
+
+const cekKelulusan = async () => {
+  try {
+    const response = await fetch(`${import.meta.env.BASE_URL}siswa.json`)
+    const rawList = await response.json()
+    const siswaList = decodeSiswaList(rawList)
+
+    const siswa = siswaList.find(item => item.nisn === nisn.value.trim() && item.password === password.value)
+
+    if (!siswa) {
+      throw new Error('NISN atau password salah')
+    }
 
     router.push({
       path: '/hasil',
       query: {
-        nama: data.nama,
-        nisn: data.nisn,
-        status: data.status
+        nama: siswa.nama,
+        nisn: siswa.nisn,
+        status: siswa.status
       }
     })
-
   } catch (error) {
-
     alert('NISN atau password salah')
-
   }
-
 }
 </script>
 
