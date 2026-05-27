@@ -1,43 +1,68 @@
 <template>
   <div class="page">
+
     <div class="card">
 
-      <!-- Logo -->
-      <img
-        :src="logo"
-        alt="Logo Sekolah"
-        class="logo"
-      >
+      <!-- LEFT -->
+      <div class="left-side">
 
-      <!-- Judul -->
-      <h1 class="title">
-        Pengumuman Kelulusan
-        <br>
-        Tahun Angkatan 2024-2025
-      </h1>
-
-      <!-- Form -->
-      <div class="form-container">
-
-        <input
-          v-model="nisn"
-          type="text"
-          placeholder="Masukkan NISN Anda"
+        <img
+          :src="logo"
+          alt="Logo Sekolah"
+          class="logo"
         >
 
-        <input
-          v-model="password"
-          type="password"
-          placeholder="Masukkan Password"
-        >
+        <h1 class="title">
+          Pengumuman Kelulusan
+          <br>
+          Tahun Angkatan 2024-2025
+        </h1>
 
-        <button @click="cekKelulusan">
-          Cek Kelulusan
-        </button>
+        <p class="description">
+          Silakan masuk menggunakan
+          NISN dan password untuk
+          melihat hasil kelulusan.
+        </p>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-side">
+
+        <div class="form-container">
+
+  <h2 class="form-title">
+    Selamat Datang!
+  </h2>
+
+  <p class="form-subtitle">
+    Silakan masuk untuk melanjutkan
+  </p>
+
+  <input
+    v-model="nisn"
+    type="text"
+    placeholder="Masukkan NISN"
+  >
+
+  <input
+    v-model="password"
+    type="password"
+    placeholder="Masukkan Password"
+  >
+
+  <button @click="cekKelulusan">
+    Cek Kelulusan
+  </button>
+
+</div>
+
+
 
       </div>
 
     </div>
+
   </div>
 </template>
 
@@ -104,105 +129,375 @@ const cekKelulusan = async () => {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 .page {
+  width: 100%;
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
-  padding: 20px;
+
+  padding: 40px;
+
+  overflow: hidden;
+
+  /* BACKGROUND IMAGE */
+  background-image: url('../assets/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* MAIN CONTAINER */
 .card {
   width: 100%;
-  max-width: 1100px;
-  text-align: center;
+  max-width: 1250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 70px;
 }
 
-.logo {
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto 40px;
-  display: block;
-  padding: 20px;
-}
+/* LEFT SIDE */
+.left-side {
+  width: 52%;
 
-.title {
-  margin-bottom: 50px;
-  font-size: 4rem;
-  font-weight: bold;
-  line-height: 1.2;
-  color: #111827;
-}
-
-.form-container {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  justify-content: center;
+  align-items: center;
 }
 
+/* LOGO */
+.logo {
+  width: 100%;
+  width: clamp(340px, 45vw, 760px);
+
+  object-fit: contain;
+
+  margin-bottom: 35px;
+
+  filter:
+    drop-shadow(0 10px 20px rgba(0,0,0,0.08));
+}
+
+/* TITLE */
+.title {
+  font-size: 40px;
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  text-align: center;
+
+  color: #0f172a;
+
+  margin-bottom: 18px;
+
+  text-shadow:
+    0 2px 8px rgba(255,255,255,0.3);
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 480px;
+
+  text-align: center;
+
+  font-size: 1.08rem;
+  line-height: 1.8;
+
+  color: #334155;
+}
+
+/* RIGHT SIDE */
+.right-side {
+  width: 100%;
+  max-width: 460px;
+  margin-top: 45px;
+
+  position: relative;
+
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 34px;
+
+  padding:
+    90px
+    40px
+    45px;
+
+  box-shadow:
+    0 20px 45px rgba(15,23,42,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.95);
+}
+
+/* ICON CIRCLE */
+.right-side::before {
+  content: '🔒';
+
+  position: absolute;
+
+  top: -45px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dbeafe,
+      #eff6ff
+    );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 38px;
+
+  box-shadow:
+    0 10px 25px rgba(59,130,246,0.12);
+}
+
+/* FORM */
+.form-container {
+  width: 100%;
+}
+
+/* TITLE */
+.form-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+
+  color: #0f172a;
+
+  text-align: center;
+
+  margin-bottom: 10px;
+}
+
+/* SUBTITLE */
+.form-subtitle {
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 1rem;
+
+  margin-bottom: 38px;
+
+  line-height: 1.7;
+}
+
+/* INPUT */
 input {
   width: 100%;
-  padding: 18px 20px;
-  font-size: 20px;
-  border: none;
+
+  height: 58px;
+
+  padding: 0 18px;
+
+  margin-bottom: 18px;
+
   border-radius: 14px;
+
+  border: 1px solid #dbe3f0;
+
+  background: white;
+
+  font-size: 15px;
+
+  color: #0f172a;
+
   outline: none;
-  transition: 0.3s ease;
-  background: #f4f6f8;
+
+  transition: all 0.25s ease;
+}
+
+input::placeholder {
+  color: #94a3b8;
 }
 
 input:focus {
-  border: 2px solid #3b82f6;
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 4px rgba(59,130,246,0.10);
 }
 
+/* BUTTON */
 button {
   width: 100%;
-  padding: 18px 20px;
+
+  height: 58px;
+
   border: none;
   border-radius: 14px;
-  background: #3b82f6;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #2563eb
+    );
+
   color: white;
-  font-size: 20px;
-  font-weight: 600;
+
+  font-size: 16px;
+  font-weight: 700;
+
   cursor: pointer;
-  transition: 0.3s ease;
+
+  transition: all 0.25s ease;
+
+  margin-top: 8px;
 }
 
 button:hover {
-  background: #2563eb;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px rgba(37,99,235,0.22);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+button:active {
+  transform: scale(0.98);
+}
+
+/* TABLET */
+@media (max-width: 1100px) {
 
   .card {
-    padding: 35px 20px;
-  }
-
-  .logo {
-    max-width: 100%;
-    margin-bottom: 30px;
+    gap: 40px;
   }
 
   .title {
-    font-size: 2.2rem;
-    margin-bottom: 35px;
+    font-size: 2.4rem;
+  }
+
+  .logo {
+    max-width: 420px;
+  }
+
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+  .page {
+    padding: 25px 18px;
+  }
+
+  .card {
+    flex-direction: column;
+
+    gap: 28px;
+  }
+
+  .left-side {
+    width: 100%;
+  }
+
+  .right-side {
+    width: 100%;
+    max-width: 470px;
+  }
+
+  .logo {
+    max-width: 320px;
+
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-size: 2rem;
+
+    margin-bottom: 14px;
+  }
+
+  .description {
+    font-size: 1rem;
+
+    max-width: 90%;
+  }
+
+}
+
+/* SMALL MOBILE */
+@media (max-width: 600px) {
+
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    gap: 22px;
+  }
+
+  .right-side {
+    padding: 35px 22px;
+
+    border-radius: 24px;
+  }
+
+  .logo {
+    max-width: 260px;
+
+    margin-bottom: 18px;
+  }
+
+  .title {
+    font-size: 1.45rem;
+
+    line-height: 1.5;
+  }
+
+  .description {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+  }
+
+  .form-title {
+    font-size: 1.7rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.92rem;
+
+    margin-bottom: 28px;
   }
 
   input {
     padding: 15px;
-    font-size: 16px;
+
+    font-size: 14px;
+
+    border-radius: 14px;
   }
 
   button {
     padding: 15px;
-    font-size: 18px;
+
+    font-size: 15px;
+
+    border-radius: 14px;
   }
 
 }
