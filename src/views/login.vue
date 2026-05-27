@@ -15,7 +15,7 @@
         <h1 class="title">
           Pengumuman Kelulusan
           <br>
-          Tahun Angkatan 2024-2025
+          Tahun Angkatan 2025-2026
         </h1>
 
         <p class="description">
