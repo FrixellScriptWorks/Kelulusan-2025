@@ -60,7 +60,8 @@
       <!-- Button -->
       <div class="button-group">
 
-        <a
+          <a
+          v-if="!isAdminHalt"
           :href="pdfNilai"
           target="_blank"
           class="btn btn-primary"
@@ -70,6 +71,7 @@
 
         <button
           class="btn btn-secondary"
+          :class="{ 'btn-halted': isAdminHalt }"
           @click="$router.back()"
         >
           ← Kembali
@@ -106,14 +108,6 @@ const hasSiswa = computed(() => {
   return Boolean(siswa && siswa.nisn)
 })
 
-const fotoSiswa = computed(() => {
-  return siswa.nisn ? `${import.meta.env.BASE_URL}foto/${siswa.nisn}.jpg` : ''
-})
-
-const pdfNilai = computed(() => {
-  return siswa.nisn ? `${import.meta.env.BASE_URL}nilai/${siswa.nisn}.pdf` : ''
-})
-
 const studentStatus = computed(() => {
   if (!siswa.status) return null
   
@@ -130,6 +124,19 @@ const studentStatus = computed(() => {
   
   // Default fallback
   return 'tidak-lulus'
+})
+
+const isAdminHalt = computed(() => studentStatus.value === 'administration-halt')
+
+const fotoSiswa = computed(() => {
+  if (isAdminHalt.value) {
+    return `${import.meta.env.BASE_URL}foto/admin_halted.jpg`
+  }
+  return siswa.nisn ? `${import.meta.env.BASE_URL}foto/${siswa.nisn}.jpg` : ''
+})
+
+const pdfNilai = computed(() => {
+  return siswa.nisn ? `${import.meta.env.BASE_URL}nilai/${siswa.nisn}.pdf` : ''
 })
 
 const statusColor = computed(() => {
@@ -273,6 +280,17 @@ const statusMessage = computed(() => {
 .btn-secondary {
   background: #f3f4f6;
   color: #111;
+}
+
+.btn-halted {
+  background: transparent;
+  border: 2px solid #f59e0b;
+  color: #b45309;
+  box-shadow: none;
+}
+
+.btn-halted:hover {
+  background: rgba(245, 158, 11, 0.08);
 }
 
 /* MOBILE */
