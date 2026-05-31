@@ -175,7 +175,7 @@ const cekKelulusan = async () => {
 
 /* LOGO */
 .logo {
-  width: 100%;
+  width: 120%;
   width: clamp(340px, 45vw, 760px);
 
   object-fit: contain;
@@ -255,6 +255,7 @@ const cekKelulusan = async () => {
 
   width: 90px;
   height: 90px;
+  margin-bottom: 10px;
 
   border-radius: 50%;
 
@@ -290,6 +291,8 @@ const cekKelulusan = async () => {
   text-align: center;
 
   margin-bottom: 10px;
+  margin-top: 1px;
+  padding-top: 2px;
 }
 
 /* SUBTITLE */

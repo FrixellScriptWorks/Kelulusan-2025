@@ -18,7 +18,7 @@
       </h1> -->
 
       <h1 class="title">
-        Selamat!
+        {{ siswa.status == 'Lulus' ? 'Selamat!' : 'Mohon Maaf!' }}
       </h1>
       
         <p class="subtitle" :class="{
@@ -192,9 +192,11 @@ const statusMessage = computed(() => {
 
 /* LOGO */
 .logo {
-  width: 100%;
+  width: 120%;
   max-width: 500px;
+  min-width: 280px;
   margin-bottom: 10px;
+  align-self: center;
 }
 
 /* TEXT */
@@ -202,6 +204,7 @@ const statusMessage = computed(() => {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 10px;
+  letter-spacing: 1px;
   color: #111;
 }
 
@@ -295,6 +298,10 @@ const statusMessage = computed(() => {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  .page {
+    background-image: url('../assets/bg2.jpg');
+  }
+
   .logo {
     max-width: 280px;
   }
