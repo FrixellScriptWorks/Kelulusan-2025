@@ -90,11 +90,9 @@
 
   </div>
 
-  <footer class="page-footer">
-    <p>
-      © 2026 Kelulusan 2025. Hubungi kami: +62 812-3456-7890 ·
-      <a href="https://www.sekolahabc.sch.id" target="_blank" rel="noopener">www.sekolahabc.sch.id</a>
-    </p>
+  <footer class="page-footer" role="contentinfo">
+    <p class="contact"> <span class="copyright">Jakarta Islamic School Joglo. </span> Hubungi kami: <a href="tel:+628118000362">+62 811-8000-362</a> · Website : <a href="https://www.jiscjoglo.sch.id" target="_blank" rel="noopener">www.jiscjoglo.sch.id</a></p>
+    <p class="contact"><a href="https://github.com/frixellscriptworks" target="_blank" rel="noopener">FrixellScriptWorks</a> © Kelulusan 2026. Semua hak dilindungi.</p>
   </footer>
 
   </div>
@@ -387,7 +385,9 @@ const statusMessage = computed(() => {
 .page-footer {
   margin-top: 28px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   width: 100%;
   max-width: 700px;
   padding: 18px 0 8px;
@@ -396,12 +396,23 @@ const statusMessage = computed(() => {
   text-align: center;
 }
 
-.page-footer a {
-  color: #2563eb;
-  text-decoration: none;
+.page-footer .copyright {
+  font-weight: 600;
+  color: rgba(17,24,39,0.88);
 }
 
-.page-footer a:hover {
+.page-footer .contact {
+  font-size: 0.92rem;
+  color: rgba(17,24,39,0.64);
+}
+
+.page-footer .contact a {
+  color: #2563eb;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.page-footer .contact a:hover {
   text-decoration: underline;
 }
 </style>

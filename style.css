@@ -201,3 +201,14 @@ a#download-link {
   max-width: 100%;
   display: block;
 }
+
+
+
+.site-footer .footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .site-footer { font-size: 13px; padding: 16px 12px; }
+  .site-footer .footer-bottom { display: block; word-break: break-word; }
+}
