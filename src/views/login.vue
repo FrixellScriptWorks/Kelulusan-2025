@@ -92,7 +92,7 @@ const decodeString = (payload) => {
 const decodeSiswaList = (rawList) => {
   return rawList.map(item => ({
     nisn: decodeString(item.nisn),
-    password: decodeString(item.nisn),
+    password: decodeString(item.password),
     nama: decodeString(item.nama),
     status: decodeString(item.status)
   }))
