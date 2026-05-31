@@ -63,6 +63,14 @@
 
     </div>
 
+    <footer class="page-footer">
+      <p>
+        © 2026 Kelulusan 2025. Hubungi kami: +62 812-3456-7890 ·
+        <a href="https://www.sekolahabc.sch.id" target="_blank" rel="noopener">
+          www.sekolahabc.sch.id
+        </a>
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -137,10 +145,11 @@ const cekKelulusan = async () => {
   min-height: 100vh;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 
-  padding: 40px;
+  padding: 40px 24px;
 
   overflow: hidden;
 
@@ -377,6 +386,27 @@ button:hover {
 
   box-shadow:
     0 12px 24px rgba(37,99,235,0.22);
+}
+
+.page-footer {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1250px;
+  padding: 18px 0 8px;
+  font-size: 0.95rem;
+  color: rgba(15,23,42,0.72);
+  text-align: center;
+}
+
+.page-footer a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
 }
 
 button:active {

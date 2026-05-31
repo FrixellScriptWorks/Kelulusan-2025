@@ -90,6 +90,13 @@
 
   </div>
 
+  <footer class="page-footer">
+    <p>
+      © 2026 Kelulusan 2025. Hubungi kami: +62 812-3456-7890 ·
+      <a href="https://www.sekolahabc.sch.id" target="_blank" rel="noopener">www.sekolahabc.sch.id</a>
+    </p>
+  </footer>
+
   </div>
 </template>
 
@@ -179,8 +186,10 @@ const statusMessage = computed(() => {
   background-repeat: no-repeat;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 24px 16px;
 }
 
 .content {
@@ -373,5 +382,26 @@ const statusMessage = computed(() => {
 
 .warning {
   color: #fbbf24;
+}
+
+.page-footer {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+  padding: 18px 0 8px;
+  font-size: 0.95rem;
+  color: rgba(17,24,39,0.72);
+  text-align: center;
+}
+
+.page-footer a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
 }
 </style>
