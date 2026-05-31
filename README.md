@@ -1,5 +1,35 @@
-# Vue 3 + Vite
+# Kelulusan 2025
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A responsive student graduation announcement web application built with Vue 3 and Vite.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Overview
+
+This app lets students check their graduation status using a secure login flow. It supports:
+
+- student status display for `Lulus`, `Tidak Lulus`, and `Administration Halt`
+- conditional user interface behavior based on graduation status
+- photo display and downloadable score report access
+- responsive styling with a separate mobile background image
+
+## Major Features
+
+- **Client-side login** with obfuscated student credentials
+- **Graduation status UI** that adapts to each outcome
+- **Administration Halt handling** with specialized visual treatment
+- **Responsive design** with desktop/tablet and mobile-specific layouts
+- **Vue Router navigation** for seamless page transitions
+
+## Frameworks & Technologies
+
+- `Vue 3` — modern reactive UI framework
+- `Vite` — fast development and build tooling
+- `Vue Router` — single-page app navigation
+- `Axios` — ready for API integration if needed
+
+## Notes
+
+- Mobile screens use a dedicated mobile background image to improve presentation.
+
+## License
+
+© 2025 FrixellScriptWorks. Licensed under MIT.
