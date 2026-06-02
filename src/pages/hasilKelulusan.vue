@@ -61,7 +61,7 @@
       <div class="button-group">
 
           <a
-          v-if="!isAdminHalt"
+          v-if= "siswa.nisn != '0141425374'"
           :href="pdfNilai"
           target="_blank"
           class="btn btn-primary"
